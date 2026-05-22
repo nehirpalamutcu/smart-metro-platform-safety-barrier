@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "author": "Nehir Palamutçu",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 19.8, "left": -3.6, "attrs": {} },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -11.6,
+      "left": -240,
+      "attrs": { "hornColor": "white" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 327.9,
+      "left": -42.5,
+      "attrs": { "distance": "278" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic2",
+      "top": 327.9,
+      "left": 197.5,
+      "attrs": { "distance": "100" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 159.6,
+      "left": 599,
+      "attrs": { "color": "limegreen" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 15.6, "left": 599, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 82.8,
+      "left": 599,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -180,
+      "left": 683.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -281.6,
+      "left": 341.6,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "mega:GND.2", "servo1:GND", "black", [ "v74.7", "h-209.05", "v-317.4", "h-211.2", "v96" ] ],
+    [ "servo1:V+", "mega:5V", "red", [ "h-9.6", "v172.9", "h439.3" ] ],
+    [ "mega:11", "servo1:PWM", "green", [ "v-86.4", "h-403.6", "v115" ] ],
+    [ "mega:5V", "ultrasonic1:VCC", "red", [ "v285.3", "h-132.1", "v-9.6" ] ],
+    [ "mega:5V", "ultrasonic2:VCC", "red", [ "v285.3", "h107.9" ] ],
+    [ "mega:GND.2", "ultrasonic1:GND", "black", [ "v275.7", "h-113.05" ] ],
+    [ "mega:22", "ultrasonic1:TRIG", "gold", [ "v1.1", "h122.6", "v470.4", "h-316.8" ] ],
+    [ "mega:2", "ultrasonic1:ECHO", "magenta", [ "v-28.8", "h255.2", "v518.4", "h-440.8" ] ],
+    [ "mega:23", "ultrasonic2:TRIG", "yellow", [ "v10.7", "h103", "v451.2", "h-192" ] ],
+    [ "mega:3", "ultrasonic2:ECHO", "magenta", [ "v-38.4", "h274.3", "v537.6", "h-210.4" ] ],
+    [ "mega:GND.2", "ultrasonic2:GND", "black", [ "v275.7", "h126.95" ] ],
+    [ "led2:C", "mega:GND.1", "black", [ "v9.6", "h-28.4", "v-105.6", "h-470.2" ] ],
+    [ "led1:C", "mega:GND.1", "black", [ "v9.6", "h-28.4", "v-249.6", "h-470.2" ] ],
+    [ "led3:C", "mega:GND.1", "black", [ "v9.6", "h-28.4", "v-172.8", "h-470.2" ] ],
+    [ "mega:37", "led2:A", "gray", [ "v1.3", "h256.6" ] ],
+    [ "mega:36", "led3:A", "gray", [ "v10.9", "h247.4", "v48", "h19.2" ] ],
+    [ "mega:35", "led1:A", "gray", [ "v1.2", "h199", "v144", "h57.6" ] ],
+    [ "mega:GND.3", "bz1:1", "black", [ "v74.1", "h530.25", "v-345.6" ] ],
+    [ "mega:34", "bz1:2", "green", [ "v-85.2", "h343.4" ] ],
+    [ "mega:GND.1", "lcd1:GND", "black", [ "v0" ] ],
+    [ "mega:5V", "lcd1:VCC", "red", [ "v35.7", "h-448.9", "v-480" ] ],
+    [ "mega:20", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "lcd1:SCL", "mega:21", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
